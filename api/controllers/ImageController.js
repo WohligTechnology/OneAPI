@@ -8,7 +8,6 @@ module.exports = {
     myFynx: function(req, res) {
         var options = {
             siteType: 'url',
-            renderDelay: 10000,
             windowSize: {
                 width: 975,
                 height: 1500
