@@ -6,7 +6,7 @@
  */
 module.exports = {
     myFynx: function(req, res) {
-        res.set('Content-Type', "image/jpeg");
+        // res.set('Content-Type', "image/jpeg");
         var options = {
             siteType: 'url',
             renderDelay: 3000,
@@ -18,9 +18,7 @@ module.exports = {
         var renderStream = sails.webshot("http://admin.myfynx.com/index2.php/#/" + req.query.url, options);
 
         renderStream.on('data', function(data) {
-            res.json({
-                value: data
-            });
+            res.send(data);
         });
     }
 };
