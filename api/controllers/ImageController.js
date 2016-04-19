@@ -16,7 +16,7 @@ module.exports = {
         };
         var renderStream = sails.webshot("http://admin.myfynx.com/index2.php/#/" + req.query.url, options);
         renderStream.on('data', function(data) {
-            // res.set('Content-Type', "image/jpeg");
+            res.set('Content-Type', "image/jpeg");
             res.send(data);
         });
     }
