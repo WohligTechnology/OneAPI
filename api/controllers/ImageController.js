@@ -7,6 +7,8 @@
 module.exports = {
     myFynx: function(req, res) {
         // res.set('Content-Type', "image/jpeg");
+        var i = 0;
+        console.log(i++);
         res.type('png');
         var options = {
             siteType: 'url',
