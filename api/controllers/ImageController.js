@@ -4,7 +4,6 @@
  * @description :: Server-side logic for managing Images
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
-var webshot = require('webshot');
 module.exports = {
     myFynx: function(req, res) {
         var options = {
@@ -15,7 +14,7 @@ module.exports = {
                 height: 1500
             }
         };
-        var renderStream = webshot("http://admin.myfynx.com/index2.php/#/" + req.query.url, options);
+        var renderStream = sails.webshot("http://admin.myfynx.com/index2.php/#/" + req.query.url, options);
         renderStream.on('data', function(data) {
             res.send(data);
         });
