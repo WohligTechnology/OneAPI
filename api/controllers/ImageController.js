@@ -6,7 +6,7 @@
  */
 module.exports = {
     myFynx: function(req, res) {
-        // res.set('Content-Type', "image/jpeg");
+
         var i = 0;
         console.log(i++);
         res.type('png');
@@ -21,7 +21,9 @@ module.exports = {
         var renderStream = sails.webshot("http://admin.myfynx.com/index2.php/#/" + req.query.url, options);
 
         renderStream.on('data', function(data) {
+            res.set('Content-Type', "image/jpeg");
             res.send(data);
         });
+
     }
 };
