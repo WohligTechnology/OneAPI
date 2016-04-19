@@ -12,18 +12,14 @@ module.exports = {
             windowSize: {
                 width: 975,
                 height: 1500
-            },
-            script: function() {
-                pageIsReady(function() {
-                    window.callPhantom('takeShot');
-                });
-            },
-            takeShotOnCallback: true
+            }
         };
         var renderStream = sails.webshot("http://admin.myfynx.com/index2.php/#/" + req.query.url, options);
-        // renderStream.on('data', function(data) {
-        res.set('Content-Type', "image/jpeg");
-        res.send(data);
-        // });
+        renderStream.on('data', function(data) {
+            res.set('Content-Type', "image/jpeg");
+            setTimeout(function() {
+                res.send(data);
+            }, 3000);
+        });
     }
 };
