@@ -7,6 +7,7 @@
 module.exports = {
     myFynx: function(req, res) {
         // res.set('Content-Type', "image/jpeg");
+        res.type('png');
         var options = {
             siteType: 'url',
             renderDelay: 3000,
